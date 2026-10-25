@@ -1,0 +1,33 @@
+{
+  "mcpServers": {
+    "mcd-mcp": {
+      "type": "streamableHttp",
+      "url": "https://mcp.mcd.cn",
+      "headers": {
+        "Authorization": "Bearer ${MCD_MCP_TOKEN}"
+      },
+      "disabled": false
+    },
+    "mcd-mcp-staging": {
+      "type": "streamableHttp",
+      "url": "https://mcp-staging.mcd.cn",
+      "headers": {
+        "Authorization": "Bearer ${MCD_MCP_STAGING_TOKEN}"
+      },
+      "disabled": true
+    },
+    "mcd-mcp-local-mock": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-everything"
+      ],
+      "env": {
+        "MOCK_PROFILE": "mcd-nutrition",
+        "LOG_LEVEL": "debug"
+      },
+      "disabled": true
+    }
+  }
+}
